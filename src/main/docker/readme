@@ -1,0 +1,15 @@
+docker build -t ins_mongo .
+docker run --name ins_mongo -d -p 27017:27017 -v /tmp/mongodb:/data -t ins_mongo
+docker container rm -f ins_mongo
+
+docker container rm $(docker container ls -a -q)
+docker image rm $(docker image ls -a -q)
+
+docker ps
+
+
+Use the container ID to run:
+
+docker inspect <container ID>
+
+docker run --name ins_mongo -d -p 27017:27017 -t ins_mongo  
